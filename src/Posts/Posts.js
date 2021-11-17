@@ -11,7 +11,7 @@ export default class Posts extends React.Component {
         const url = "https://tiktok33.p.rapidapi.com/trending/feed";
         const headers = { 
             "x-rapidapi-host": "tiktok33.p.rapidapi.com",
-		    "x-rapidapi-key": "b7a86b94e5msh7cd344678f32b85p140c33jsnb8a8a6573afb"
+		    "x-rapidapi-key": "c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66"
         };
         const response = await fetch(url, {headers});
         if (response.ok){

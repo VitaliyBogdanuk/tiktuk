@@ -11,11 +11,17 @@ export default class User extends React.Component {
         const url = "https://tiktok33.p.rapidapi.com/user/info/"+ this.props.user;
         const headers = { 
             "x-rapidapi-host": "tiktok33.p.rapidapi.com",
-		    "x-rapidapi-key": "b7a86b94e5msh7cd344678f32b85p140c33jsnb8a8a6573afb"
+		    "x-rapidapi-key": "c1257dc04cmshd888bbb072eb770p1f2b8ajsnbf16d4cd1d66"
         };
         const response = await fetch(url, {headers});
-        const data = await response.json();
-        this.setState({ user: data, loading: false });
+        if (response.ok){
+            const data = await response.json();
+            console.log(data);
+            this.setState({ user: data, loading: false });
+        } else {
+            console.log(response.statusText);
+            this.setState({ user: false, loading: false, error: response.statusText });
+        }
     }
 
     render(){
@@ -23,7 +29,7 @@ export default class User extends React.Component {
             return <div>loading...</div>;
         }
       
-        if (!this.state.posts) {
+        if (!this.state.user) {
             return <div>didn't get a user</div>;
         }
 
